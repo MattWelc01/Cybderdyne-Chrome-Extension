@@ -1,0 +1,38 @@
+{
+  "name": "Cyberdyne Email Flagger",
+  "description": "Flag phishing emails for processing in system",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default title": "Check system status",
+    "default_icon": {
+      "16": "/images/e85f0e49126c922f36059300bb0d1283-32bits-16.png",
+      "32": "/images/e85f0e49126c922f36059300bb0d1283-32bits-32.png",
+      "48": "/images/e85f0e49126c922f36059300bb0d1283-32bits-48.png",
+      "128": "/images/e85f0e49126c922f36059300bb0d1283-32bits-128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/e85f0e49126c922f36059300bb0d1283-32bits-16.png",
+    "32": "/images/e85f0e49126c922f36059300bb0d1283-32bits-32.png",
+    "48": "/images/e85f0e49126c922f36059300bb0d1283-32bits-48.png",
+    "128": "/images/e85f0e49126c922f36059300bb0d1283-32bits-128.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [ "https://www.google.com/*" ],
+      "js": [ "emailForwarder.js" ],
+      "css": [ "main.css" ]
+
+    }
+  ],
+
+
+  "options_page": "options.html"
+}
